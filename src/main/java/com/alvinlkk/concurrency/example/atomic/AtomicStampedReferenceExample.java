@@ -34,15 +34,15 @@ public class AtomicStampedReferenceExample {
 
         }
         countDownLatch.await();
-        //log.info("value: {}", integerArray.get(0));
+        log.info("value: {}", stampedReference.getReference());
         log.info("done!");
-
+        
         //关闭线程池
         executorService.shutdown();
     }
 
     public static void atomicOper() {
-        //stampedReference.compareAndSet()
+        stampedReference.compareAndSet(10, 1, 1, 2);
     }
 
 }
